@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-23T19:42:25+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">lemoni.cloud</title><subtitle>Voi juku</subtitle><entry><title type="html">Terve mualima!</title><link href="http://localhost:4000/blog/2020/09/11/helloworld.html" rel="alternate" type="text/html" title="Terve mualima!" /><published>2020-09-11T20:46:31+03:00</published><updated>2020-09-11T20:46:31+03:00</updated><id>http://localhost:4000/blog/2020/09/11/helloworld</id><content type="html" xml:base="http://localhost:4000/blog/2020/09/11/helloworld.html">&lt;p&gt;Check out the &lt;a href=&quot;lemoni.cloud&quot;&gt;lemoni.cloud&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Yes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Its amazing&lt;/p&gt;</content><author><name></name></author><category term="blog" /><summary type="html">Check out the lemoni.cloud</summary></entry></feed>
