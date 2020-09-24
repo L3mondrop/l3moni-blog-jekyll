@@ -29,7 +29,7 @@ github_username:  l3mondrop
 instagram: l3moni
 
 # Build settings
-theme: minima
+theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
 
