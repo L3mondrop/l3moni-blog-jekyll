@@ -7,9 +7,4 @@ categories: blog
 
 Check out the [lemoni.cloud][lemoni-cloud]
 
-<ul>
-<li>Yes</li>
-</ul>
-Its amazing
-
 [lemoni-cloud]: lemoni.cloud
