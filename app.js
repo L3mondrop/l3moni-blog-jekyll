@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
 
 app.get('/string', function(req, res) {
     console.log("hello");
-    res.send('Hello from /string - Secret is: ' + process.env.CUSTOMCONNSTR_mysecret)
+    res.send('Hello from /string - Secret is: ' + process.env.CUSTOMCONNSTR_MYSECRET)
 });
 
 app.listen(8080);
