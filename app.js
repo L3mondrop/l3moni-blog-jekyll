@@ -9,7 +9,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/string', function(req, res) {
-    Console.log("hello");
+    console.log("hello");
 });
 
 app.listen(8080);
