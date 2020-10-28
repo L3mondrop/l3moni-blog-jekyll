@@ -8,6 +8,11 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index3.html'));
 });
 
+app.get('/test', function(req, res) {
+    res.send('hi from /test')
+});
+
+
 app.get('/string', function(req, res) {
     console.log("hello");
     res.send('Hello from /string - Secret is: ' + process.env.CUSTOMCONNSTR_MYSECRET)
