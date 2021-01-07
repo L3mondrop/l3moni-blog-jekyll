@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/6363e279-3c1d-4811-aab8-6949ca991fd2/resourceGroups/l3moni-appservice-demo/providers/Microsoft.Web/sites/l3moni",
-    "appService.deploySubpath": "."
-}
