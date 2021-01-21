@@ -29,7 +29,15 @@ steps:
 - script: |
     jekyll build
   displayName: 'Jekyll Build'
-
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'l3moni-sonarcloud-sc'
+    organization: 'l3moni'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'l3moni_l3moni-blog'
+    cliProjectName: 'l3moni-blog'
+    cliSources: '.'
 - task: SonarCloudAnalyze@1
 
 - task: Docker@2
