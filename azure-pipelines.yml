@@ -30,6 +30,8 @@ steps:
     jekyll build
   displayName: 'Jekyll Build'
 
+- task: SonarCloudAnalyze@1
+
 - task: Docker@2
   inputs:
     containerRegistry: 'l3moni-blog-acr-serviceconnection'
