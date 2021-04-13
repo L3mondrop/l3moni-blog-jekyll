@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: l3moni-blog-nginx
-        image: l3moni.azurecr.io/l3moni-blog:0.0.13
+        image: l3moni.azurecr.io/l3moni-blog:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
