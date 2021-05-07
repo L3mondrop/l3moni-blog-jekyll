@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: l3moni-blog-nginx
-        image: l3moni.azurecr.io/l3moni-blog:latest
+        image: l3moni.azurecr.io/l3moni-blog:0.0.21
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -32,19 +32,3 @@ spec:
   selector:
     app: l3moni-nginx
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: l3moni-nginx-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    
-spec:
-  rules:
-  - host: server.example.com
-    http:
-      paths:
-      - backend:
-          serviceName: nginx-svc
-          servicePort: 80
-        path: /
