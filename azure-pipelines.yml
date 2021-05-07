@@ -27,7 +27,7 @@ steps:
   displayName: 'Install dependencies - Bundler'
 
 - script: |
-    jekyll build
+    bundle exec jekyll build
   displayName: 'Jekyll Build'
 - task: SonarCloudPrepare@1
   inputs:
