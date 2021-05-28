@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Testausta"
-date:   2021-01-07 18:09:38 +0200
+title:  "Blog coming soon..."
+date:   2021-05-28 12:20:00 +0200
 categories: mikon blogi
 ---
 
-# Mikon postaus
+# To be updated
 
-Uusi versio
+Website coming soon...
