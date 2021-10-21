@@ -19,21 +19,26 @@
 # in the templates via {{ site.myvariable }}.
 
 title: lemoni.cloud
-email: kasanen.mikko@outlook.com
+email: mikko.kasanen@microsoft.com
 description: >- # this means to ignore newlines until "baseurl:"
   lemoni.cloud is a "semi-personal" blog of Microsoft Cloud Solution Architect Mikko Kasanen.
   On this site you can find dev links and articles related to Azure.  
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://lemoni.cloud" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://lemoni.cloud" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: l3mondrop
 github_username:  l3mondrop
 instagram_username: l3moni
 linkedin_username: l3moni
 
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+
+# Conversion
+incremental         : false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
