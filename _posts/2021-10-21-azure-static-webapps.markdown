@@ -22,7 +22,7 @@ Commit your code to the "root" or depending on the front-end framework in use [c
 
 #### Step 2: Create a Azure Static Web App & configure the right repo to by synced
 
-Azure Portal -> Create -> Azure Static Web App -> Configure RG, location, name & plan -> Configure repo source
+Azure Portal -> Create -> Azure Static Web App -> Configure RG, location, name & plan -> Configure repo source.
 
 ![instructions-screenshot](/assets/portal-az-static-webapp.png)
 
