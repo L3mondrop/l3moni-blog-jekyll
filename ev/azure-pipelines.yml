@@ -1,0 +1,44 @@
+# Ruby
+
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+   major: 0
+   minor: 0
+
+name: $(major).$(minor)$(Rev:.r)
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+  displayName: 'Install dependencies - Bundler'
+
+- script: |
+    jekyll build
+  displayName: 'Jekyll Build'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'l3moni-blog-acr-serviceconnection'
+    repository: 'l3moni-blog'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: '$(Build.BuildNumber)'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    publishLocation: 'pipeline'
