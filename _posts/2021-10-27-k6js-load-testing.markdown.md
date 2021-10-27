@@ -12,7 +12,7 @@ Simppeliä kuormitustestausta suoraan Azure DevOpsin pipelinessa k6.js:n avulla
 Rakennan tällä hetkellä itselleni simppeliä blogia jota tarjoillaan tällä hetkellä sekä previewissä olevan [Azure Static Web Appsin](https://azure.microsoft.com/en-us/services/app-service/static/), sekä minun pienen AKS klusterin kautta joten halusin katsoa kuinka ne pärjäävät kuormituksen alla.
 
 Käytin testissäni seuraavanlaista koodia:
-
+```javascript
 import http from &#39;k6/http&#39;;
 
 import { check, sleep } from &#39;k6&#39;;
@@ -46,7 +46,7 @@ export default function () {
   sleep(1);
 
 }
-
+```
 Kuva 1. – Testaus scriptini jota ajetaan build agentissa tai vaikka lokaalilla koneella
 
 Azure DevOpsin puolella minulla on seuraavanlainen Release pipeline:
