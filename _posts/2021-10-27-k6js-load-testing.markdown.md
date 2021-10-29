@@ -47,7 +47,7 @@ export default function () {
 
 }
 ```
-Kuva 1. – Testaus scriptini jota ajetaan build agentissa tai vaikka lokaalilla koneella
+Kuva 1. – Testaus scriptini jota ajetaan build agentissa tai vaikka lokaalilla koneella.
 
 Azure DevOpsin puolella minulla on seuraavanlainen Release pipeline:
 
