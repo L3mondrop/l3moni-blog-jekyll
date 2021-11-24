@@ -13,40 +13,27 @@ Rakennan tällä hetkellä itselleni simppeliä blogia jota tarjoillaan tällä 
 
 Käytin testissäni seuraavanlaista koodia:
 
-import http from &#39;k6/http&#39;;
+```javascript
+import http from 'k6/http';
+import { check, sleep } from 'k6';
 
-import { check, sleep } from &#39;k6&#39;;
 
 // Generoidaan 40 sekuntin ajan kuormitusta eri virtuaalikäyttäjien määrillä
-
 export let options = {
-
   stages: [
-
-    { duration: &#39;10s&#39;, target: 100},
-
-    { duration: &#39;10s&#39;, target: 50},
-
-    { duration: &#39;10s&#39;, target: 25},
-
-    { duration: &#39;10s&#39;, target: 10},
-
+    { duration: '10s', target: 100},
+    { duration: '10s', target: 50},
+    { duration: '10s', target: 25},
+    { duration: '10s', target: 10},
   ],
-
 };
-
 export default function () {
-
-  // \_\_ENV.URLin avulla voidaan tuoda haluttu ip / dns osoite ulkopuolelta, esim. Azure DevOpsista
-
-  let res = http.get(\_\_ENV.URL);
-
-  check(res, {&#39;status was 200&#39;: (r) =\&gt; r.status == 200});
-
+  // __ENV.URLin avulla voidaan tuoda haluttu ip / dns osoite ulkopuolelta, esim. Azure DevOpsista
+  let res = http.get(__ENV.URL);
+  check(res, {'status was 200': (r) => r.status == 200});
   sleep(1);
-
 }
-
+```
 Kuva 1. – Testaus scriptini jota ajetaan build agentissa tai vaikka lokaalilla koneella
 
 Azure DevOpsin puolella minulla on seuraavanlainen Release pipeline:
