@@ -10,21 +10,22 @@ categories: azure
 To describe a “typical manual” workflow for myself around containers and Kubernetes would be something like this:
 1.	Create a application to be containerized – Let it be a UDP Server .NET6 application in this example.
 2.	Create a Dockerfile that can build an image around this application
-```Dockerfile
+{% highlight Dockerfile %}
 FROM mcr.microsoft.com/dotnet/runtime:6.0
 
 COPY bin/Release/net6.0/publish/ App/
 WORKDIR /App
 EXPOSE 11000/udp
 ENTRYPOINT [ "dotnet", "l3moni-udp-server.dll"]
-```
+{% endhighlight %}
 3.	Build the actual image based on the Dockerfile
 4.	Tag the image for container registry such as. Azure Container Registry or DockerHub
 5.	Push the image to container registry
 6.	Write a Kubernetes deployment *.YAML file for the workload also containing the Service element for exposing the service to public (get the image from container registry).
 7.	Run kubectl on a local machine to deploy in AKS
 
-####For something more production ready, I usually automate the image building and deployment by using a CI/CD pipeline in either Azure DevOps or GitHub Actions as one should.
+#### For something more production ready, I usually automate the image building and deployment by using a CI/CD pipeline in either Azure DevOps or GitHub Actions as one should.
+
 ### Enter Deployment Center
 Using Deployment Center in AKS will _greatly_ simplify the workflows described above. 
 
