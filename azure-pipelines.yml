@@ -52,7 +52,7 @@ steps:
   inputs:
     action: 'deploy'
     kubernetesServiceConnection: 'l3monitf-k8s - kubernetes'
-    namespace: 'l3moni-test'
+    namespace: ''
     manifests: 'deploy.yaml'
     containers: 'l3moni.azurecr.io/l3moni-blog:$(Build.BuildNumber)'
 
