@@ -1,29 +1,63 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+# Ruby
+
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
 trigger:
-- master
+- main
 
-resources:
-- repo: self
+pool:
+  vmImage: 'ubuntu-latest'
 
 variables:
-  tag: '$(Build.BuildId)'
+   major: 0
+   minor: 0
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+name: $(major).$(minor)$(Rev:.r)
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+  displayName: 'Install dependencies - Bundler'
+
+- script: |
+    bundle exec jekyll build
+  displayName: 'Jekyll Build'
+#- task: SonarCloudPrepare@1
+#  inputs:
+#    SonarCloud: 'l3moni-sonarcloud-sc'
+#    organization: 'l3moni'
+#    scannerMode: 'CLI'
+#    configMode: 'manual'
+#    cliProjectKey: 'l3moni_l3moni-blog'
+#    cliProjectName: 'l3moni-blog'
+#    cliSources: '.'
+
+#- task: SonarCloudAnalyze@1
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'l3moni-blog-acr-serviceconnection'
+    repository: 'l3moni-blog'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: '$(Build.BuildNumber)'
+
+- task: KubernetesManifest@0
+  inputs:
+    action: 'deploy'
+    kubernetesServiceConnection: 'l3monitf-k8s - kubernetes'
+    namespace: ''
+    manifests: 'deploy.yaml'
+    containers: 'l3moni.azurecr.io/l3moni-blog:$(Build.BuildNumber)'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    publishLocation: 'pipeline'
