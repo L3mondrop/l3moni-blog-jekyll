@@ -5,7 +5,7 @@ import { check, sleep } from 'k6';
 // Generoidaan 40 sekuntin ajan kuormitusta eri virtuaalikäyttäjien määrillä
 export let options = {
   stages: [
-    { duration: '10s', target: 150},
+    { duration: '20s', target: 150},
     { duration: '10s', target: 50},
     { duration: '10s', target: 25},
     { duration: '10s', target: 10},
