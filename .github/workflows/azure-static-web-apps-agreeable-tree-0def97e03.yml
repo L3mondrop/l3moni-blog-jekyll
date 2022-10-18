@@ -23,7 +23,7 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
-      - run: gem install jekyll
+      - run: bundle exec rake
       - name: Jekyll build step
         run: jekyll build
       - name: Build And Deploy
