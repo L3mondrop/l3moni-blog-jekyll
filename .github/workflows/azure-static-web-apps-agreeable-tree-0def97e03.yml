@@ -21,6 +21,7 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
+          ruby-version: '3.0'
           bundler-cache: true
       - name: Jekyll build step
         run: jekyll build
